@@ -1,0 +1,138 @@
+.space-mission {
+  position: relative;
+  background-color: lightgrey;
+  padding: 20px;
+  max-width: 1366px;
+  margin: auto;
+  
+  &--wp {
+    display: flex;
+    padding: 0;
+    @include mobile-device() {
+      display: block;
+    }
+  }
+  &--image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  &--list {
+    display: block;
+    flex: 0 0 100%;
+    background-color: lightgrey;
+    margin: 0;
+    padding: 0;
+    @include desktop-device() {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 0 0 85%;
+    }
+    @include ipad-device() {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &--item {
+    flex: 0 0 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    @include desktop-device() {
+      flex: 0 0 20%;
+      margin-left: 22px;
+    }
+    @include ipad-device() {
+      flex: 0 0 44%;
+    }
+  }
+
+  &--missionIds {
+    label {
+      margin-left: -40px;
+      &::after {
+        content: ": ";
+      }
+    }
+  }
+
+  &--details {
+    h3 {
+      color: #0b0bec82;
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+
+  &--info {
+    label,
+    span {
+      font-size: 14px;
+      color: black;
+      font-weight: 700;
+    }
+    span {
+      color: #787be2;
+      &::before {
+        content: ": ";
+      }
+    }
+  }
+
+  &--filterItem {
+    list-style-type: none;
+    flex: 0 0 50%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &--filterSection {
+    flex: 0 0 15%;
+    background-color: white;
+    h3 {
+      padding: 20px;
+    }
+  }
+
+  &--filterList {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  &--filterBtn {
+    background-color: lightgreen;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-weight: 600;
+    min-width: 70px;
+    cursor: pointer;
+
+    &.selected {
+      background-color: #2a902a;
+    }
+  }
+
+  &--filterLabel {
+    white-space: nowrap;
+    border-bottom: 1px solid;
+    display: block;
+    text-align: center;
+  }
+
+  &--filterWp {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+
+@mixin mobile-device () {
+    @media ( min-width: 320px)and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin ipad-device () {
+    @media ( min-width: 501px)and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop-device () {
+    @media ( min-width: 1025px) {
+        @content;
+    }
+}
