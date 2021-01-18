@@ -19,7 +19,7 @@ function MissionDetails(mission) {
             </p>
             <p className="space-mission--info">
                 <label>Successfully Lannding</label>
-                <span>{list.is_tentative ? "Yes" : "No"}</span>
+                <span>{(list.rocket.first_stage.cores[0].land_success) ? "Yes":"No"}</span>
             </p>
         </section>
     );

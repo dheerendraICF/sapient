@@ -3,14 +3,16 @@ import React, { Component } from 'react';
 import { Fragment } from 'react';
 import Image from './Image';
 import MissionDetails from './MissionDetails';
+import axios from 'axios';
 
 class CardList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedList: [],
-      cardItemsIds: [],
       cardItems: [],
+      filterLnd: [],
+      filterLunc: [],
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -19,32 +21,50 @@ class CardList extends React.Component {
       this.setState({ cardItems: nextProps.cardItems });
     }
   }
-  filterCardList() {
-    let selectedList = this.state.cardItems.map(list => {
-      if (list.includes(this.state.selectedList) ||
-        (this.state.selectedList == "sucss_lnch_yes" && list.launch_success == true) ||
-        (this.state.selectedList == "sucss_lnch_no" && list.launch_success == false) ||
-        (this.state.selectedList == "sucss_lnd_yes" && list.launch_success == true) ||
-        (this.state.selectedList == "sucss_lnd_no" && list.launch_success == false)) {
-
-        return (
-          list.flight_number
-        )
-      }
-    });
-    console.log("selectedList:",selectedList)
+  filterData(API) {
+    console.log("API:", API);
+    axios.get(API)
+      .then(res => {
+        const programs = res.data;
+        this.setState({ cardItems: programs });
+        console.log("programs:", programs)
+      })
   }
-  handleClick(list) {
-    let selectedList = this.state.selectedList;
-    if (selectedList.includes(list)) {
-      selectedList.splice(selectedList.indexOf(list), 1);
+  handleClick(list, type) {
+    let API = "https://api.spaceXdata.com/v3/launches?limit=100",
+      filterLunc = "",
+      filterLnd = "",
+      selectedList = "";
+
+    if (type == "year") {
+      selectedList = this.state.selectedList.includes(list) ? [] : list;
       this.setState({ selectedList: selectedList });
-      console.log("delete selectedList: ", this.state.selectedList);
-    } else {
-      selectedList.push(list);
-      this.setState({ selectedList: selectedList });
-      console.log("selectedList: ", this.state.selectedList);
+      API = "https://api.spaceXdata.com/v3/launches?limit=100&launch_year=" + selectedList;
+
     }
+    if (type == "lnch") {
+      filterLunc = this.state.filterLunc.includes(list) ? [] : list;
+      let status = (filterLunc == "sucss_lnch_yes") ? "true" : "false";
+      this.setState({ filterLunc: filterLunc });
+      API = "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=" + status;
+    }
+    if (type == "lnd") {
+      filterLnd = this.state.filterLnd.includes(list) ? [] : list;
+      let status = (filterLnd == "sucss_lnd_yes") ? "true" : "false";
+      this.setState({ filterLnd: list });
+      API = "https://api.spaceXdata.com/v3/launches?limit=100&land_success=" + status;
+
+    }
+    if ((this.state.selectedList.length > 0 || selectedList) && (filterLnd || this.state.filterLnd.length > 0) && (filterLunc || this.state.filterLunc.length > 0)) {
+        let tempselectedList =(selectedList) ? selectedList : this.state.selectedList;
+        let tempfilterLunc =(filterLunc) ? ((filterLunc == "sucss_lnch_yes") ? "true" : "false") : ((this.state.filterLunc == "sucss_lnch_yes") ? "true" : "false");
+        let tempfilterLnd =(filterLnd) ? ((filterLnd == "sucss_lnd_yes") ? "true" : "false") : ((this.state.filterLnd == "sucss_lnd_yes") ? "true" : "false");
+
+      API = "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=" + tempfilterLunc + "&land_success=" + tempfilterLnd + "&launch_year=" + tempselectedList;
+    }
+    
+    this.filterData(API)
+
   }
   render() {
     return (
@@ -57,7 +77,7 @@ class CardList extends React.Component {
               {
                 this.props.launchYear.map((list, idx) =>
                   <li className="space-mission--filterItem" key={idx}>
-                    <button className={this.state.selectedList.includes(list) ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick(list)}>
+                    <button className={this.state.selectedList.includes(list) ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick(list, 'year')}>
                       {list}
                     </button>
                   </li>
@@ -69,12 +89,12 @@ class CardList extends React.Component {
             <label className="space-mission--filterLabel">Successful Launch</label>
             <ul className="space-mission--filterList">
               <li className="space-mission--filterItem" key="sucss_lnch_yes">
-                <button className={this.state.selectedList.includes("sucss_lnch_yes") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnch_yes")}>
+                <button className={this.state.filterLunc.includes("sucss_lnch_yes") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnch_yes", 'lnch')}>
                   Yes
                     </button>
               </li>
               <li className="space-mission--filterItem" key="sucss_lnch_no">
-                <button className={this.state.selectedList.includes("sucss_lnch_no") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnch_no")}>
+                <button className={this.state.filterLunc.includes("sucss_lnch_no") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnch_no", 'lnch')}>
                   No
                     </button>
               </li>
@@ -83,13 +103,13 @@ class CardList extends React.Component {
           <section className="space-mission--filterWp">
             <label className="space-mission--filterLabel">Successful Landing</label>
             <ul className="space-mission--filterList">
-              <li className="space-mission--filterItem" key="sucss_lnch_yes">
-                <button className={this.state.selectedList.includes("sucss_lnd_yes") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnd_yes")}>
+              <li className="space-mission--filterItem" key="sucss_lnd_yes">
+                <button className={this.state.filterLnd.includes("sucss_lnd_yes") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnd_yes", "lnd")}>
                   Yes
                     </button>
               </li>
               <li className="space-mission--filterItem" key="sucss_lnch_no">
-                <button className={this.state.selectedList.includes("sucss_lnd_no") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnd_no")}>
+                <button className={this.state.filterLnd.includes("sucss_lnd_no") ? 'space-mission--filterBtn selected' : 'space-mission--filterBtn'} onClick={(e) => this.handleClick("sucss_lnd_no", "lnd")}>
                   No
                     </button>
               </li>
@@ -99,19 +119,13 @@ class CardList extends React.Component {
         <section>
           <ul className="space-mission--list">
             {
-              this.props.cardItems.map(list => {
-                if (this.state.selectedList.includes(list.launch_year) ||
-                (this.state.selectedList.includes("sucss_lnch_yes") && list.launch_success == true) ||
-                (this.state.selectedList.includes("sucss_lnch_no") && list.launch_success == false) ||
-                (this.state.selectedList.includes("sucss_lnd_yes") && list.launch_success == true) ||
-                (this.state.selectedList.includes("sucss_lnd_no") && list.launch_success == false) || this.state.selectedList.length == 0) {
-                  return (
-                    <li className="space-mission--item" key={list.flight_number}>
-                      <Image links={list.links} />
-                      <MissionDetails list={list} />
-                    </li>
-                  )
-                }
+              this.state.cardItems.map((list, idx) => {
+                return (
+                  <li className="space-mission--item" key={idx}>
+                    <Image links={list.links} />
+                    <MissionDetails list={list} />
+                  </li>
+                )
               })
             }
           </ul>
