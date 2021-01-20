@@ -13,6 +13,7 @@ class CardList extends React.Component {
       cardItems: [],
       filterLnd: [],
       filterLunc: [],
+      isLoaded:true,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -23,11 +24,13 @@ class CardList extends React.Component {
   }
   filterData(API) {
     console.log("API:", API);
+    this.setState({isLoaded:false});
     axios.get(API)
       .then(res => {
         const programs = res.data;
         this.setState({ cardItems: programs });
-        console.log("programs:", programs)
+        console.log("programs:", programs);
+        this.setState({isLoaded:true});
       })
   }
   handleClick(list, type) {
@@ -117,6 +120,8 @@ class CardList extends React.Component {
           </section>
         </aside>
         <section>
+          
+          <h3 className={this.state.isLoaded? 'hide' :'show'}>Loading...</h3>
           <ul className="space-mission--list">
             {
               this.state.cardItems.map((list, idx) => {
