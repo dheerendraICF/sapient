@@ -1,0 +1,73 @@
+[debug] [2021-01-20T16:20:19.255Z] ----------------------------------------------------------------------
+[debug] [2021-01-20T16:20:19.257Z] Command:       /usr/local/bin/firebase /Users/icf2033326/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2021-01-20T16:20:19.257Z] CLI Version:   9.2.1
+[debug] [2021-01-20T16:20:19.257Z] Platform:      darwin
+[debug] [2021-01-20T16:20:19.257Z] Node Version:  v12.18.1
+[debug] [2021-01-20T16:20:19.258Z] Time:          Wed Jan 20 2021 21:50:19 GMT+0530 (India Standard Time)
+[debug] [2021-01-20T16:20:19.258Z] ----------------------------------------------------------------------
+[debug] [2021-01-20T16:20:19.258Z] 
+[debug] [2021-01-20T16:20:19.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-20T16:20:19.262Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/icf2033326/Documents/extraWork/reactProject/test/sapient
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2021-01-20T16:21:02.730Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-01-20T16:21:02.731Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-20T16:21:03.232Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Wed, 20 Jan 2021 16:21:03 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-20T16:21:03.268Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"papi1234","name":"sap1234"}
+[debug] [2021-01-20T16:21:05.516Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 20 Jan 2021 16:21:05 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1653","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-20T16:21:05.518Z] > refreshing access token with scopes: []
+[debug] [2021-01-20T16:21:05.519Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-20T16:21:05.939Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 20 Jan 2021 16:21:05 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-20T16:21:05.973Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 [none]
+[debug] [2021-01-20T16:21:07.931Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 200
+[debug] [2021-01-20T16:21:07.931Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 {"name":"operations/cp.5330625189373202046","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true}}
+[debug] [2021-01-20T16:21:08.433Z] [Project Creation Poller] Retrying task index 0
+[debug] [2021-01-20T16:21:08.434Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 [none]
+[debug] [2021-01-20T16:21:10.384Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 200
+[debug] [2021-01-20T16:21:10.384Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5330625189373202046 {"name":"operations/cp.5330625189373202046","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"527632051541","projectId":"papi1234","lifecycleState":"ACTIVE","name":"sap1234","createTime":"2021-01-20T16:21:05.135Z"}}
+[debug] [2021-01-20T16:21:10.385Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-01-20T16:21:10.386Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-20T16:21:10.799Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Wed, 20 Jan 2021 16:21:10 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-20T16:21:10.833Z] >>> HTTP REQUEST POST https://firebase.googleapis.com/v1beta1/projects/papi1234:addFirebase  
+ 
+[debug] [2021-01-20T16:21:12.225Z] <<< HTTP RESPONSE 403 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Wed, 20 Jan 2021 16:21:12 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-20T16:21:12.225Z] <<< HTTP RESPONSE BODY {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2021-01-20T16:21:12.226Z] HTTP Error: 403, The caller does not have permission
+[debug] [2021-01-20T16:21:12.667Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/Users/icf2033326/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/Users/icf2033326/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/api.js:41:35)
+    at Request.self.callback (/Users/icf2033326/.cache/firebase/tools/lib/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:315:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at Request.<anonymous> (/Users/icf2033326/.cache/firebase/tools/lib/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:315:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at IncomingMessage.<anonymous> (/Users/icf2033326/.cache/firebase/tools/lib/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:421:28)
+    at IncomingMessage.emit (events.js:327:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:482:12)
+    at endReadableNT (_stream_readable.js:1221:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.
