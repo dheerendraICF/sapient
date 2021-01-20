@@ -24,15 +24,18 @@
     background-color: lightgrey;
     margin: 0;
     padding: 0;
+    margin-left: 0;
     @include desktop-device() {
       display: flex;
       flex-wrap: wrap;
       flex: 0 0 85%;
+      margin-left: 20px;
     }
     @include ipad-device() {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      margin-left: 10px;
     }
   }
 
