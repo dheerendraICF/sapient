@@ -13,7 +13,7 @@ class CardList extends React.Component {
       cardItems: [],
       filterLnd: [],
       filterLunc: [],
-      isLoaded:true,
+      isLoaded: true,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -24,13 +24,13 @@ class CardList extends React.Component {
   }
   filterData(API) {
     console.log("API:", API);
-    this.setState({isLoaded:false});
+    this.setState({ isLoaded: false });
     axios.get(API)
       .then(res => {
         const programs = res.data;
         this.setState({ cardItems: programs });
         console.log("programs:", programs);
-        this.setState({isLoaded:true});
+        this.setState({ isLoaded: true });
       })
   }
   handleClick(list, type) {
@@ -54,18 +54,18 @@ class CardList extends React.Component {
     if (type == "lnd") {
       filterLnd = this.state.filterLnd.includes(list) ? [] : list;
       let status = (filterLnd == "sucss_lnd_yes") ? "true" : "false";
-      this.setState({ filterLnd: list });
+      this.setState({ filterLnd: filterLnd });
       API = "https://api.spaceXdata.com/v3/launches?limit=100&land_success=" + status;
 
     }
     if ((this.state.selectedList.length > 0 || selectedList) && (filterLnd || this.state.filterLnd.length > 0) && (filterLunc || this.state.filterLunc.length > 0)) {
-        let tempselectedList =(selectedList) ? selectedList : this.state.selectedList;
-        let tempfilterLunc =(filterLunc) ? ((filterLunc == "sucss_lnch_yes") ? "true" : "false") : ((this.state.filterLunc == "sucss_lnch_yes") ? "true" : "false");
-        let tempfilterLnd =(filterLnd) ? ((filterLnd == "sucss_lnd_yes") ? "true" : "false") : ((this.state.filterLnd == "sucss_lnd_yes") ? "true" : "false");
+      let tempselectedList = (selectedList) ? selectedList : this.state.selectedList;
+      let tempfilterLunc = (filterLunc) ? ((filterLunc == "sucss_lnch_yes") ? "true" : "false") : ((this.state.filterLunc == "sucss_lnch_yes") ? "true" : "false");
+      let tempfilterLnd = (filterLnd) ? ((filterLnd == "sucss_lnd_yes") ? "true" : "false") : ((this.state.filterLnd == "sucss_lnd_yes") ? "true" : "false");
 
       API = "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=" + tempfilterLunc + "&land_success=" + tempfilterLnd + "&launch_year=" + tempselectedList;
     }
-    
+
     this.filterData(API)
 
   }
@@ -120,8 +120,8 @@ class CardList extends React.Component {
           </section>
         </aside>
         <section>
-          
-          <h3 className={this.state.isLoaded? 'hide' :'show'}>Loading...</h3>
+
+          <h3 className={this.state.isLoaded ? 'hide' : 'show'}>Loading...</h3>
           <ul className="space-mission--list">
             {
               this.state.cardItems.map((list, idx) => {

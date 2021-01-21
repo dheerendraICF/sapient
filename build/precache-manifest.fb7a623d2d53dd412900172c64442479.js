@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b38cdc7d9be5dfc9eb9e2cb8317f24dd",
+    "revision": "e6726e9100feb384e1fc7a2d23739a8f",
     "url": "/sapient/index.html"
   },
   {
-    "revision": "02f4c8d55b3be03bbb38",
+    "revision": "4a70732290116a3423ff",
     "url": "/sapient/static/css/main.5a525cf9.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sapient/static/js/2.aade3edc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "02f4c8d55b3be03bbb38",
-    "url": "/sapient/static/js/main.44c3bbe1.chunk.js"
+    "revision": "4a70732290116a3423ff",
+    "url": "/sapient/static/js/main.0ae1f240.chunk.js"
   },
   {
     "revision": "e24cb85c368482d04c8e",
