@@ -6,13 +6,13 @@
 }
 
 @mixin ipad-device () {
-    @media ( min-width: 501px)and (max-width: 1024px) {
+    @media ( min-width: 501px)and (max-width: 1324px) {
         @content;
     }
 }
 
 @mixin desktop-device () {
-    @media ( min-width: 1025px) {
+    @media ( min-width: 1325px) {
         @content;
     }
 }
