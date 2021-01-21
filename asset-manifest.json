@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sapient/static/css/main.6cb7dae0.chunk.css",
+    "main.css": "/sapient/static/css/main.5a525cf9.chunk.css",
     "main.js": "/sapient/static/js/main.44c3bbe1.chunk.js",
     "main.js.map": "/sapient/static/js/main.44c3bbe1.chunk.js.map",
     "runtime-main.js": "/sapient/static/js/runtime-main.34e1fa14.js",
@@ -8,15 +8,15 @@
     "static/js/2.aade3edc.chunk.js": "/sapient/static/js/2.aade3edc.chunk.js",
     "static/js/2.aade3edc.chunk.js.map": "/sapient/static/js/2.aade3edc.chunk.js.map",
     "index.html": "/sapient/index.html",
-    "precache-manifest.76d8737ede236d5c659273607a6ff64f.js": "/sapient/precache-manifest.76d8737ede236d5c659273607a6ff64f.js",
+    "precache-manifest.167dd7e37bae49e38612aa5ba6b19eda.js": "/sapient/precache-manifest.167dd7e37bae49e38612aa5ba6b19eda.js",
     "service-worker.js": "/sapient/service-worker.js",
-    "static/css/main.6cb7dae0.chunk.css.map": "/sapient/static/css/main.6cb7dae0.chunk.css.map",
+    "static/css/main.5a525cf9.chunk.css.map": "/sapient/static/css/main.5a525cf9.chunk.css.map",
     "static/js/2.aade3edc.chunk.js.LICENSE.txt": "/sapient/static/js/2.aade3edc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.34e1fa14.js",
     "static/js/2.aade3edc.chunk.js",
-    "static/css/main.6cb7dae0.chunk.css",
+    "static/css/main.5a525cf9.chunk.css",
     "static/js/main.44c3bbe1.chunk.js"
   ]
 }
